@@ -49,13 +49,13 @@ readFile(filePath)
   })
 ```
 
-## Note: ZOMG! promisemonkey uses __proto__!
+## Note: ZOMG! promisemonkey uses \_\_proto\_\_!
 
 The "monkey" in "promisemonkey" is because the underlying implementation uses
-__proto__ to use prototype chaining to forward method calls through to the
+\_\_proto\_\_ to use prototype chaining to forward method calls through to the
 underlying object instance.
 
 The nice thing about this is that it avoids wrapping every single method call
 or property, which is quite slow to do in javascript.
 
-It shouldn't cause any issues as __proto__ is now part of the ES6 standard.
+It shouldn't cause any issues as \_\_proto\_\_ is now part of the ES6 standard.
