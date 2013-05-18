@@ -1,5 +1,4 @@
 var expect = require('chai').expect
-  , Q = require('q')
   , promisify = require('..')
   , path = require('path');
 
