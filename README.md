@@ -11,6 +11,19 @@ $ npm install promisemonkey
 
 # Example
 
+## Access standard node APIs as promises
+
+You can easily acccess the standard node APIs as promises:
+
+``` js
+var promisify = require('promisemonkey');
+var fs = promisify('fs');
+fs.stat(filePath)
+  .then(function (stats) {
+    expect(stats.size).to.be.above(0);
+  });
+```
+
 ## Convert an object
 
 You can pass through a object with methods and then an array of the method
@@ -20,7 +33,7 @@ names to promisify:
 var promisify = require('promisemonkey');
 
 // Pass through an object and array of method names
-var fs = promisify(require('fs'), ['readFile', 'stat']);
+var fs = promisify.convert(require('fs'), ['readFile', 'stat']);
 
 // All the underlying functions should be accessible
 var contents = fs.readFileSync(filePath).toString();
@@ -42,7 +55,7 @@ fs.stat(filePath)
 And, of course you can promisify a plain old function
 
 ``` js
-var readFile = promisify(require('fs').readFile);
+var readFile = promisify.convert(require('fs').readFile);
 readFile(filePath)
   .then(function (contents) {
     expect(contents.length).to.be.above(0);

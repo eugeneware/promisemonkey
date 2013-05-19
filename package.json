@@ -1,6 +1,6 @@
 {
   "name": "promisemonkey",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Easily convert objects, functions and METHODs to the Q promise API",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "mocha": "~1.9.0"
   },
   "dependencies": {
-    "q-wrap": "0.0.1"
+    "q-wrap": "0.0.1",
+    "request": "~2.21.0"
   }
 }

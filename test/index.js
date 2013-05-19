@@ -7,7 +7,7 @@ describe('Promise Monkey', function () {
 
   it('should be able to promisify objects', function (done) {
     // Pass through an object and array of method names
-    var fs = promisify(require('fs'), ['readFile', 'stat']);
+    var fs = promisify.convert(require('fs'), ['readFile', 'stat']);
 
     // All the underlying functions should be accessible
     var contents = fs.readFileSync(filePath).toString();
@@ -26,11 +26,20 @@ describe('Promise Monkey', function () {
   });
 
   it('should be able to promisify functions', function (done) {
-    var readFile = promisify(require('fs').readFile);
+    var readFile = promisify.convert(require('fs').readFile);
     readFile(filePath)
       .then(function (contents) {
         expect(contents.length).to.be.above(0);
       })
       .then(done);
+  });
+
+  it('should be able to promisify node libraries', function (done) {
+
+    var fs = promisify('fs');
+    expect(fs.readFile.toString()).to.match(/Q\.defer\(\)/);
+    expect(fs.readFileSync.toString()).to.not.match(/Q\.defer\(\)/);
+
+    done();
   });
 });
