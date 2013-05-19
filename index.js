@@ -50,8 +50,7 @@ function updateRequires(cb) {
 
 function getRequires() {
   var requires = {};
-  var requiresPath = path.join(__dirname, 'requires.json');
-  console.log(requiresPath);
+  var requiresPath = path.join(__dirname, 'docs', process.version + '.json');
   if (fs.existsSync(requiresPath)) {
     return JSON.parse(fs.readFileSync(requiresPath).toString());
   }
