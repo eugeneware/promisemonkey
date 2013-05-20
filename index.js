@@ -9,7 +9,9 @@ function promisify(o, fns) {
     var p = {};
     p.__proto__ = o;
     fns.forEach(function (fn) {
-      p[fn] = convert(o[fn]);
+      if (o[fn]) {
+        p[fn] = convert(o[fn]);
+      }
     });
 
     return p;
