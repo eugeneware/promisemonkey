@@ -1,13 +1,13 @@
 {
   "name": "promisemonkey",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Easily convert objects, functions and METHODs to the Q promise API",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha",
     "install": "node bin/install.js"
   },
-  "repository": "https://github.com/nharbour/promisemonkey",
+  "repository": "https://github.com/eugeneware/promisemonkey",
   "keywords": [
     "promise",
     "promises",
