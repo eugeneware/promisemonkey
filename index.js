@@ -6,8 +6,7 @@ var convert = require('q-wrap').convert
 
 function promisify(o, fns) {
   if (typeof o === 'object') {
-    var p = {};
-    p.__proto__ = o;
+    var p = Object.create(o);
     fns.forEach(function (fn) {
       if (o[fn]) {
         p[fn] = convert(o[fn]);
